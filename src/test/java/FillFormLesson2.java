@@ -27,8 +27,10 @@ public class FillFormLesson2 {
         $(By.id("dateOfBirthInput")).click();
         $(By.className("react-datepicker__month-select")).selectOptionByValue("5");
         $(By.className("react-datepicker__year-select")).selectOptionByValue("1973");
-        $(By.className("react-datepicker__day react-datepicker__day--007 react-datepicker__day--weekend")).selectOptionByValue("7");
-
+     //   $(By.className("react-datepicker__day react-datepicker__day--007")).selectOptionByValue("7");
+        $(getClass("react-datepicker__day react-datepicker__day--007")).selectOptionByValue("7");
+        $(By.id("hobbies-checkbox-1")).click();
+        $(By.id("hobbies-checkbox-3")).click();
 
 
         open ("https://demoqa.com/");
