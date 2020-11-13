@@ -1,16 +1,15 @@
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.closeWindow;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
-public class fillForm_less2 {
+public class FillFormLesson2 {
 
     @Test
     void lesson2Form() {
         open ("https://demoqa.com/automation-practice-form");
 
-        open ("https://demoqa.com/automation-practice-form");
-        closeWindow();
+
+        open ("https://demoqa.com/");
     }
 
 }
