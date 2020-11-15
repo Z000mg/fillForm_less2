@@ -1,6 +1,12 @@
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+
+import javax.swing.*;
+
+import java.io.File;
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -12,7 +18,14 @@ public class FillFormLesson2 {
             last_name = "Ivanov",
             email = "exmpl@ya.ru",
             number = "9031234567",
-            adress = "Lenina str.";
+            adress = "Lenina str.",
+            subj = "WTF";
+    File file = new File("src/test/resources/1.jpg");
+
+    @BeforeAll
+    static void setup(){
+        Configuration.startMaximized = true;
+    }
 
     @Test
     void lesson2Form() {
@@ -26,15 +39,17 @@ public class FillFormLesson2 {
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOptionByValue("6");
         $(".react-datepicker__year-select").selectOptionByValue("1973");
-        $(".react-datepicker__day--003").click();
+        $(".react-datepicker__day--007").click();
+        $("#subjectsInput").click();
+        $("#subjectsInput").val(subj);
+        $x("//*[@for='hobbies-checkbox-1']").click();
+        $x("//*[@for='hobbies-checkbox-3']").click();
+        $("#uploadPicture").uploadFile(file);
+        $("#currentAddress").val(adress);
+        $("#stateCity-wrapper").click();
 
-        $(By.id("dateOfBirthInput")).click();
+        $x("//*[@for='hobbies-checkbox-3']").click();
 
-        $(By.className("react-datepicker__day")).click();
-        //$(By.cssSelector("react-datepicker__day")).click();
-
-
-        open ("https://demoqa.com/");
     }
 
 }
