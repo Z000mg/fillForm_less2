@@ -14,8 +14,6 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class FillFormLesson2 {
-
-
     public static String
             first_name = "Alexander",
             last_name = "Ivanov",
