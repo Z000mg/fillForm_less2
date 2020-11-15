@@ -2,11 +2,10 @@ import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
-
+import static com.codeborne.selenide.Selenide.*;
 
 public class FillFormLesson2 {
+
 
     public static String
             first_name = "Alexander",
@@ -19,18 +18,20 @@ public class FillFormLesson2 {
     void lesson2Form() {
         open ("https://demoqa.com/automation-practice-form");
         $("html").shouldHave(Condition.text("Student Registration Form"));
-        $(By.id("firstName")).setValue(first_name);
-        $(By.id("lastName")).setValue(last_name);
-        $(By.id("userEmail")).setValue(email);
-        $(By.id("userNumber")).setValue(number);
-        $(By.id("gender-radio-1")).doubleClick();
+        $("#firstName").val(first_name);
+        $("#lastName").val(last_name);
+        $("#userEmail").val(email);
+        $x("//*[@for='gender-radio-1']").click();
+        $("#userNumber").val(number);
+        $("#dateOfBirthInput").click();
+        $(".react-datepicker__month-select").selectOptionByValue("6");
+        $(".react-datepicker__year-select").selectOptionByValue("1973");
+        $(".react-datepicker__day--003").click();
+
         $(By.id("dateOfBirthInput")).click();
-        $(By.className("react-datepicker__month-select")).selectOptionByValue("5");
-        $(By.className("react-datepicker__year-select")).selectOptionByValue("1973");
-     //   $(By.className("react-datepicker__day react-datepicker__day--007")).selectOptionByValue("7");
-        $(getClass("react-datepicker__day react-datepicker__day--007")).selectOptionByValue("7");
-        $(By.id("hobbies-checkbox-1")).click();
-        $(By.id("hobbies-checkbox-3")).click();
+
+        $(By.className("react-datepicker__day")).click();
+        //$(By.cssSelector("react-datepicker__day")).click();
 
 
         open ("https://demoqa.com/");
