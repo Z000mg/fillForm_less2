@@ -1,15 +1,10 @@
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-
-import javax.swing.*;
 
 import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.by;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -57,6 +52,7 @@ public class FillFormLesson2 {
         $x("//td[text()='Student Email']/following::td[1]").shouldHave(text(email));
         $x("//td[text()='Gender']/following::td[1]").shouldHave(text("Male"));
         $x("//td[text()='Mobile']/following::td[1]").shouldHave(text(number));
+        $x("//td[text()='Date of Birth']/following::td[1]").shouldHave(text("07 July,1973"));
         $x("//td[text()='Hobbies']/following::td[1]").shouldHave(text("Sports, Music"));
         $x("//td[text()='Picture']/following::td[1]").shouldHave(text("1.jpg"));
         $x("//td[text()='Address']/following::td[1]").shouldHave(text(adress));
